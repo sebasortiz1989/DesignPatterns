@@ -41,7 +41,12 @@ public class PlayerController : MonoBehaviour {
             animator.SetTrigger("isDead");
             this.enabled = false;
         }
-
-
     }
+    //private void //OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.GetComponent<Plant>() != null && collision.gameObject.GetComponent<Plant>().plantData.Threat.ToString() == "High")
+    //    {
+    //        dead = true;
+    //    }
+    //}
 }
