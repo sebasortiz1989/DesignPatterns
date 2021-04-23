@@ -24,4 +24,9 @@ public class SpawnProxy : MonoBehaviour, IDeclareReferencedPrefabs, IConvertGame
         };
         dstManager.AddComponentData(entity, spawnerData);
     }
+
+    public void DeclareReferencedPrefabs(List<GameObject> referencedPrefabs)
+    {
+        throw new NotImplementedException();
+    }
 }
