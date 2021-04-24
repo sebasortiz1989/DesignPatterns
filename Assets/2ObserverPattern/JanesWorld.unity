@@ -1838,7 +1838,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1792587451}
-  eggIcon: {fileID: 7579844365620487260, guid: ae9eec261c1c20b44973dd3fc74952e5, type: 3}
 --- !u!114 &1454461981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2013,8 +2012,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggPrefab: {fileID: 5729759265382404543, guid: a0ea93c00004d304795b0242e8deaf2c, type: 3}
+  medPrefab: {fileID: 1911284752551701786, guid: c1743bfe931350c4790ea9df364bb80d, type: 3}
   terrain: {fileID: 194105728}
-  eggDrop: {fileID: 11400000, guid: 6969b5a360187c648b497ec3258dac5b, type: 2}
 --- !u!4 &1821672580
 Transform:
   m_ObjectHideFlags: 0

@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35d8535271b8b104db3f1ea46921f09e, type: 3}
-  m_Name: EggDropped
+  m_Name: Pickup
   m_EditorClassIdentifier: 
