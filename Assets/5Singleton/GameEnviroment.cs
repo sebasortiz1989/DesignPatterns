@@ -5,20 +5,29 @@ using UnityEngine;
 public sealed class GameEnviroment
 {
     private static GameEnviroment sharedInstance;
-    private List<GameObject> obstacles = new List<GameObject>();
-
-    public List<GameObject> Obstacles { get { return obstacles; } }
 
     public static GameEnviroment Singleton
     {
-        get 
-        { 
+        get
+        {
             if (sharedInstance == null)
             {
                 sharedInstance = new GameEnviroment();
             }
-            return sharedInstance;        
+            return sharedInstance;
         }
+    }
+
+    private List<GameObject> obstacles = new List<GameObject>();
+    public List<GameObject> Obstacles { get { return obstacles; } }
+
+    private List<GameObject> goals = new List<GameObject>();
+    public List<GameObject> Goals { get { return goals; }}
+
+    public GameObject GetRandomGoal()
+    {
+        int index = Random.Range(0, goals.Count);
+        return goals[index];
     }
 
     public void AddObstacles(GameObject go)
@@ -30,5 +39,6 @@ public sealed class GameEnviroment
     {
         int index = obstacles.IndexOf(go);
         obstacles.RemoveAt(index);
+        GameObject.Destroy(go);
     }
 }
