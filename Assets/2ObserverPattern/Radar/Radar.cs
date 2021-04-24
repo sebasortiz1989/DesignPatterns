@@ -69,4 +69,10 @@ public class Radar : MonoBehaviour
         RegisterRadarObject(go, go.GetComponent<Item>().icon);
     }
 
+    public void ItemPickedup(GameObject go)
+    {
+        Debug.Log("Item Picked up");
+        RemoveRadarObject(go);
+    }
+
 }
