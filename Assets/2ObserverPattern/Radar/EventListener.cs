@@ -1,23 +1,26 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class UnityGameObjectEvent: UnityEvent<GameObject> { }
+
 public class EventListener : MonoBehaviour
 {
-    public Event gEvent;
-    public UnityEvent response;
+    public Event gameEvent;
+    public UnityGameObjectEvent response = new UnityGameObjectEvent();
 
     private void OnEnable()
     {
-        gEvent.Register(this);
+        gameEvent.Register(this);
     }
 
     private void OnDisable()
     {
-        gEvent.UnRegister(this);
+        gameEvent.UnRegister(this);
     }
 
-    public void OnEventOccurs()
+    public void OnEventOccurs(GameObject gameObject)
     {
-        response.Invoke();
+        response.Invoke(gameObject);
     }
 }
