@@ -16,7 +16,8 @@ public class Move : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
     }
 }

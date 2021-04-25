@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Drive : MonoBehaviour
 {
     public float speed = 10.0f;
     public GameObject bullet;
+    public Slider healthBar;
+
+
 
     void Update()
     {
@@ -22,5 +24,8 @@ public class Drive : MonoBehaviour
                 b.SetActive(true);
             }
         }
+
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(this.transform.position) + new Vector3(0, -120, 0);
+        healthBar.transform.position = screenPos;
     }
 }
