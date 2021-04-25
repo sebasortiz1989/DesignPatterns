@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -51,71 +49,26 @@ public class State
         }
         return this;
     }
-}
 
-public class Idle: State
-{
-    public Idle(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
+    public bool CanSeePlayer()
     {
-        name = STATE.IDLE;
-    }
+        Vector3 direction = player.position - npc.transform.position;
+        float angle = Vector3.Angle(direction, npc.transform.forward);
 
-    public override void Enter()
-    {
-        anim.SetTrigger("isIdle");
-        base.Enter();
-    }
-
-    public override void Update()
-    {
-        if (Random.Range(0, 100) < 10)
+        if (direction.magnitude < visDist && angle < visAngle)
         {
-            nextState = new Patrol(npc, agent, anim, player);
-            stage = EVENT.EXIT;
+            return true;
         }
+        return false;
     }
 
-    public override void Exit()
+    public bool CanAttackPlayer()
     {
-        anim.ResetTrigger("isIdle");
-        base.Exit();
-    }
-}
-
-public class Patrol: State
-{
-    int currentIndex = -1;
-
-    public Patrol(GameObject _npc, NavMeshAgent _agent, Animator _anim, Transform _player) : base(_npc, _agent, _anim, _player)
-    {
-        name = STATE.PATROL;
-        agent.speed = 2;
-        agent.isStopped = false;
-    }
-
-    public override void Enter()
-    {
-        currentIndex = 0;
-        anim.SetTrigger("isWalking");
-        base.Enter();
-    }
-
-    public override void Update()
-    {
-        if (agent.remainingDistance < 1)
+        Vector3 direction = player.position - npc.transform.position;
+        if (direction.magnitude < shootDist)
         {
-            if (currentIndex >= GameEnviroment.Singleton.Checkpoints.Count - 1)
-                currentIndex = 0;
-            else
-                currentIndex++;
-
-            agent.SetDestination(GameEnviroment.Singleton.Checkpoints[currentIndex].transform.position);
+            return true;
         }
-    }
-
-    public override void Exit()
-    {
-        anim.ResetTrigger("isWalking");
-        base.Exit();
+        return false;
     }
 }
