@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public sealed class GameEnviroment
 {
@@ -17,6 +18,7 @@ public sealed class GameEnviroment
             {
                 sharedInstance = new GameEnviroment();
                 sharedInstance.Checkpoints.AddRange(GameObject.FindGameObjectsWithTag("Checkpoint"));
+                sharedInstance.checkpoints = sharedInstance.checkpoints.OrderBy(waypoint => waypoint.name).ToList(); //Orders it in ascending alphabetical order.
             }
             return sharedInstance;
         }
