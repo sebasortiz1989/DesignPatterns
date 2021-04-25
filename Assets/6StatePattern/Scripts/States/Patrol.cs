@@ -46,6 +46,11 @@ public class Patrol : State
             nextState = new Pursue(npc, agent, anim, player);
             stage = EVENT.EXIT;
         }
+        else if (IsPlayerBehind())
+        {
+            nextState = new RunToSafeZone(npc, agent, anim, player);
+            stage = EVENT.EXIT;
+        }
     }
 
     public override void Exit()

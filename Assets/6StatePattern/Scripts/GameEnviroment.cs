@@ -10,6 +10,8 @@ public sealed class GameEnviroment
     private List<GameObject> checkpoints = new List<GameObject>();
     public List<GameObject> Checkpoints { get { return checkpoints; } }
 
+    public GameObject safeZone;
+
     public static GameEnviroment Singleton
     {
         get
@@ -19,6 +21,7 @@ public sealed class GameEnviroment
                 sharedInstance = new GameEnviroment();
                 sharedInstance.Checkpoints.AddRange(GameObject.FindGameObjectsWithTag("Checkpoint"));
                 sharedInstance.checkpoints = sharedInstance.checkpoints.OrderBy(waypoint => waypoint.name).ToList(); //Orders it in ascending alphabetical order.
+                sharedInstance.safeZone = GameObject.FindGameObjectWithTag("Safe");
             }
             return sharedInstance;
         }

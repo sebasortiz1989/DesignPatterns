@@ -5,7 +5,7 @@ public class State
 {
     public enum STATE
     {
-        IDLE, PATROL, PURSUE, ATTACK, SLEEP
+        IDLE, PATROL, PURSUE, ATTACK, SAFEZONE
     };
 
     public enum EVENT
@@ -66,6 +66,18 @@ public class State
     {
         Vector3 direction = player.position - npc.transform.position;
         if (direction.magnitude < shootDist)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool IsPlayerBehind()
+    {
+        Vector3 direction = npc.transform.position - player.position;
+        float angle = Vector3.Angle(direction, npc.transform.forward);
+
+        if (direction.magnitude < 3 && angle < 30)
         {
             return true;
         }
