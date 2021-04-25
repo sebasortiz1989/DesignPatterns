@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1951451907133757422}
   - component: {fileID: 1951451907133757420}
   - component: {fileID: 1951451907133757411}
-  - component: {fileID: -1449803475089415057}
+  - component: {fileID: -3804476418885689242}
   m_Layer: 0
   m_Name: BulletPrefab
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0.1, z: 0}
---- !u!114 &-1449803475089415057
+--- !u!114 &-3804476418885689242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -6,6 +6,6 @@ public class DestroyInvis : MonoBehaviour
 {
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 }
