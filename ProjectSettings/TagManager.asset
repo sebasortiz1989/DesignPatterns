@@ -8,6 +8,8 @@ TagManager:
   - Checkpoint
   - Fire
   - Safe
+  - Bullet
+  - Asteroid
   layers:
   - Default
   - TransparentFX
